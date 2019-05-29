@@ -12,6 +12,7 @@ $(document).ready(function(){
     $("#form-chat").submit(function(e){
         e.preventDefault();
         socket.emit('newMessage', $("#nama").val(), $("#message").val());
+        $("#message").val("");
     });
     $("#form-setting").submit(function(e){
         e.preventDefault();
