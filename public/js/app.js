@@ -1,6 +1,7 @@
 var socket = io();
 socket.on('addMessage', function(user, message){
-    console.log(user+" "+message);
+    var message = "<li>"+user+": "+message+"</li>";
+    $(message).hide().appendTo(".chat-history ul").slideDown(200);
 });
 socket.on('updateClient', function(count){
     console.log("Client count: "+count);
