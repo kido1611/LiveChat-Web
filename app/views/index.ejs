@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hello</title>
+        <title>Live chat</title>
     </head>
     <body>
-        <h1>Hello World</h1>
+        <form id="form-chat" action="/" method="POST">
+            <input type="text" name="nama" required placeholder="Nama anda" value="ahmad">
+            <div class="chat-history">
+                <ul>
+                    <li>hello</li>
+                    <li>hello2</li>
+                    <li>hello3</li>
+                    <li>hello4</li>
+                </ul>
+            </div>
+            <textarea name="message" placeholder ="Type your message" rows="3">Coba</textarea> 
+            <button type="submit">Send</button>
+        </form>
+        <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/app.js"></script>
     </body>
 </html>
