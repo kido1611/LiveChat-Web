@@ -23,6 +23,7 @@ var init = function(app){
         socket.on('newMessage', function(user, message){
             console.log(message);
             socket.emit('addMessage', user, message);
+            socket.broadcast.emit('addMessage', user, message);
         });
     });
 
