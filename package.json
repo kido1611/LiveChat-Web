@@ -1,0 +1,24 @@
+{
+  "name": "heroku-livechat",
+  "version": "1.0.0",
+  "description": "Livechat using Heroku platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Muhammad Abdusy Syukur",
+    "email": "ahmadci3@gmail.com",
+    "url": "https://github.com/kido1611"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bufferutil": "4.0.1",
+    "ejs": "^2.6.1",
+    "express": "4.17.1",
+    "socket.io": "2.2.0",
+    "utf-8-validate": "5.0.2",
+    "ws": "7.0.0"
+  }
+}
