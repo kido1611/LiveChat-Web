@@ -11,4 +11,8 @@ $(document).ready(function(){
         e.preventDefault();
         socket.emit('newMessage', $("#nama").val(), $("#message").val());
     });
+    $("#form-setting").submit(function(e){
+        e.preventDefault();
+        document.cookie = "nama="+$("#nama").val();
+    });
 });
