@@ -21,7 +21,7 @@ var init = function(app){
         });
 
         socket.on('newMessage', function(user, message){
-            console.log(message);
+            console.log("From "+user+" send "+message);
             socket.emit('addMessage', user, message);
             socket.broadcast.emit('addMessage', user, message);
         });
