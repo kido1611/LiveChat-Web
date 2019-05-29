@@ -8,14 +8,14 @@ var init = function(app){
     var server 	= require('http').Server(app);
     var io = require('socket.io')(server);
     io.on('connection', (socket) => {
-        console.log('New client connected');
         clientCount++;
+        console.log('New client connected. Size: '+clientCount);
         socket.emit('updateClient', clientCount);
         socket.broadcast.emit('updateClient', clientCount);
 
         socket.on('disconnect', () => {
-            console.log('This client disconnected')
             clientCount--;
+            console.log('This client disconnected. Size: '+clientCount)
             socket.emit('updateClient', clientCount);
             socket.broadcast.emit('updateClient', clientCount);
         });
