@@ -6,6 +6,6 @@ socket.on('addMessage', function(user, message){
 $(document).ready(function(){
     $("#form-chat").submit(function(e){
         e.preventDefault();
-        socket.emit('newMessage', "Nama", "Pesan22");
+        socket.emit('newMessage', $("#nama").val(), $("#message").val());
     });
 });
