@@ -10,10 +10,14 @@ var init = function(app){
     io.on('connection', (socket) => {
         console.log('New client connected');
         clientCount++;
+        socket.emit('updateClient', clientCount);
+        socket.broadcast.emit('updateClient', clientCount);
 
         socket.on('disconnect', () => {
             console.log('This client disconnected')
             clientCount--;
+            socket.emit('updateClient', clientCount);
+            socket.broadcast.emit('updateClient', clientCount);
         });
 
         socket.on('newMessage', function(user, message){
