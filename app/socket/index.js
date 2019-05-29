@@ -9,6 +9,10 @@ var init = function(app){
         console.log('Client connected');
         socket.on('disconnect', () => console.log('Client disconnected'));
 
+        socket.on('newMessage', function(user, message){
+            console.log(message);
+            socket.emit('addMessage', user, message);
+        });
     });
 
     server.listen(PORT, () => {
