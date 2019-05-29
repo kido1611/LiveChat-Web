@@ -4,6 +4,7 @@ socket.on('addMessage', function(user, message){
 });
 socket.on('updateClient', function(count){
     console.log("Client count: "+count);
+    $("#livepeople").html(count);
 });
 
 $(document).ready(function(){
