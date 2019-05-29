@@ -4,8 +4,11 @@
         <title>Live chat</title>
     </head>
     <body>
+        <form id="form-setting" action="/" method="POST">
+            <input type="text" name="nama" id="nama" required placeholder="Nama anda" value="">
+            <input type="submit" value="Save">
+        </form>
         <form id="form-chat" action="/" method="POST">
-            <input type="text" name="nama" id="nama" required placeholder="Nama anda" value="ahmad">
             <div class="chat-history">
                 <ul>
                     <li>hello</li>
@@ -15,7 +18,7 @@
                 </ul>
             </div>
             <textarea name="message" id="message" placeholder="Type your message" rows="3">Coba</textarea> 
-            <button type="submit">Send</button>
+            <input type="submit" value="Send">
         </form>
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
