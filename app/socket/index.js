@@ -2,12 +2,19 @@
 
 const PORT = process.env.PORT || 4000;
 
+var clientCount = 0;
+
 var init = function(app){
     var server 	= require('http').Server(app);
     var io = require('socket.io')(server);
     io.on('connection', (socket) => {
-        console.log('Client connected');
-        socket.on('disconnect', () => console.log('Client disconnected'));
+        console.log('New client connected');
+        clientCount++;
+
+        socket.on('disconnect', () => {
+            console.log('This client disconnected')
+            clientCount--;
+        });
 
         socket.on('newMessage', function(user, message){
             console.log(message);
