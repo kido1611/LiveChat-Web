@@ -62,3 +62,7 @@ function getCookie(cname){
     }
     return undefined;
 }
+var db = new Dexie("livechat_db");
+db.version(1).stores({
+    messages: '++id, user_uuid, user_name, message, date, f_info'
+});
