@@ -103,6 +103,13 @@ db.messages.each(function(message){
 });
 
 function showMessage(uuid, user, message, date, f_info){
-    var item = "<li>"+user+": "+message+"</li>";
+    if(f_info == 0){
+        var item = "<li>"+user+": "+message+"</li>";
+    }
+    else if(f_info == 1){
+        var item = "<li><hr/></li>";
+    }else if(f_info == 2){
+        var item = "<li>"+message+"</li>";
+    }
     $(item).hide().appendTo(".chat-history ul").slideDown(200);
 }
