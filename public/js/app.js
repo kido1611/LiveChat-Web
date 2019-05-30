@@ -17,7 +17,7 @@ $(document).ready(function(){
     });
     $("#form-setting").submit(function(e){
         e.preventDefault();
-        document.cookie = "nama="+$("#nama").val();
+        document.cookie = "user="+$("#nama").val();
     });
 });
 
