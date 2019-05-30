@@ -21,11 +21,11 @@ $(document).ready(function(){
     });
 });
 
-var nama = getCookie("nama");
-if(nama==undefined){
-    nama = "Guest"
+var user = getCookie("user");
+if(user==undefined){
+    user = "Guest"
 }
-$("#nama").val(nama);
+$("#nama").val(user);
 
 var uuid = getCookie("user_uuid");
 if(uuid==undefined){
