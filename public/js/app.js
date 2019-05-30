@@ -9,6 +9,16 @@ socket.on('addMessage', function(uuid, user, message, date){
     });
     showMessage(uuid, user, message, date, 0);
 });
+socket.on('updateUser', function(uuid, oldUser, newUser, date){
+    db.messages.add({
+        user_uuid: uuid,
+        user_name: newUser, 
+        message: oldUser+" change name to "+newUser,
+        date: date,
+        f_info: 2
+    });
+    showMessage(uuid, newUser, oldUser+" change name to "+newUser, date, 2);
+});
 socket.on('updateClient', function(count){
     $("#livepeople").html(count);
 });
@@ -32,7 +42,12 @@ $(document).ready(function(){
     });
     $("#form-setting").submit(function(e){
         e.preventDefault();
+        if(user == $("#nama").val()){
+            return;
+        }
+        socket.emit('changeName', uuid, user, $("#nama").val());
         document.cookie = "user="+$("#nama").val();
+        user = $("#nama").val();
     });
 });
 

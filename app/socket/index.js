@@ -25,6 +25,12 @@ var init = function(app){
             socket.emit('addMessage', uuid, user, message, new Date());
             socket.broadcast.emit('addMessage', uuid, user, message, new Date());
         });
+
+        socket.on('changeName', function(uuid, oldUser, newUser){
+            console.log("User UUID "+uuid+" change name from "+oldUser+" to "+newUser);
+            socket.emit('updateUser', uuid, oldUser, newUser, new Date());
+            socket.broadcast.emit('updateUser', uuid, oldUser, newUser, new Date());
+        });
     });
 
     server.listen(PORT, () => {
