@@ -107,7 +107,7 @@ function showMessage(uuid, user, message, date, f_info){
         var item = "<li>"+user+": "+message+"</li>";
     }
     else if(f_info == 1){
-        var item = "<li><hr/></li>";
+        var item = "<li>You're disconnected</li>";
     }else if(f_info == 2){
         var item = "<li>"+message+"</li>";
     }
