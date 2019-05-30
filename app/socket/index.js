@@ -20,10 +20,10 @@ var init = function(app){
             socket.broadcast.emit('updateClient', clientCount);
         });
 
-        socket.on('newMessage', function(user, message){
-            console.log("From "+user+" send "+message);
-            socket.emit('addMessage', user, message);
-            socket.broadcast.emit('addMessage', user, message);
+        socket.on('newMessage', function(uuid, user, message){
+            console.log("From "+user+"("+uuid+") send "+message);
+            socket.emit('addMessage', uuid, user, message);
+            socket.broadcast.emit('addMessage', uuid, user, message);
         });
     });
 

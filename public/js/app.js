@@ -1,6 +1,7 @@
 var socket = io();
-socket.on('addMessage', function(user, message){
+socket.on('addMessage', function(uuid, user, message){
     var message = "<li>"+user+": "+message+"</li>";
+    console.log(uuid);
     $(message).hide().appendTo(".chat-history ul").slideDown(200);
 });
 socket.on('updateClient', function(count){
@@ -11,7 +12,7 @@ socket.on('updateClient', function(count){
 $(document).ready(function(){
     $("#form-chat").submit(function(e){
         e.preventDefault();
-        socket.emit('newMessage', $("#nama").val(), $("#message").val());
+        socket.emit('newMessage', uuid, $("#nama").val(), $("#message").val());
         $("#message").val("");
     });
     $("#form-setting").submit(function(e){
