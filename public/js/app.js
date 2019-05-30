@@ -1,36 +1,3 @@
-var socket = io();
-socket.on('addMessage', function(uuid, user, message, date){
-    db.messages.add({
-        user_uuid: uuid,
-        user_name: user, 
-        message: message,
-        date: date,
-        f_info: false
-    });
-    showMessage(uuid, user, message, date, 0);
-});
-socket.on('updateUser', function(uuid, oldUser, newUser, date){
-    db.messages.add({
-        user_uuid: uuid,
-        user_name: newUser, 
-        message: oldUser+" change name to "+newUser,
-        date: date,
-        f_info: 2
-    });
-    showMessage(uuid, newUser, oldUser+" change name to "+newUser, date, 2);
-});
-socket.on('updateClient', function(count){
-    $("#livepeople").html(count);
-});
-socket.on('disconnect', function(){
-    db.messages.add({
-        user_uuid: uuid,
-        user_name: user, 
-        message: "Disconnected",
-        date: new Date(),
-        f_info: 1
-    });
-});
 window.onunload = function () {
     socket.disconnect();
 };
