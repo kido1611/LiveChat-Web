@@ -10,7 +10,6 @@ socket.on('addMessage', function(uuid, user, message, date){
     showMessage(uuid, user, message, date, 0);
 });
 socket.on('updateClient', function(count){
-    console.log("Client count: "+count);
     $("#livepeople").html(count);
 });
 socket.on('disconnect', function(){
