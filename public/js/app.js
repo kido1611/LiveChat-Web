@@ -13,7 +13,18 @@ socket.on('updateClient', function(count){
     console.log("Client count: "+count);
     $("#livepeople").html(count);
 });
-
+socket.on('disconnect', function(){
+    db.messages.add({
+        user_uuid: uuid,
+        user_name: user, 
+        message: "Disconnected",
+        date: new Date(),
+        f_info: 1
+    });
+});
+window.onunload = function () {
+    socket.disconnect();
+};
 $(document).ready(function(){
     $("#form-chat").submit(function(e){
         e.preventDefault();
