@@ -67,7 +67,17 @@ function getCookie(cname){
     }
     return undefined;
 }
+
 var db = new Dexie("livechat_db");
 db.version(1).stores({
     messages: '++id, user_uuid, user_name, message, date, f_info'
 });
+
+db.messages.each(function(message){
+    showMessage(message.user_uuid, message.user_name, message.message, message.date, message.f_info);
+});
+
+function showMessage(uuid, user, message, date, f_info){
+    var item = "<li>"+user+": "+message+"</li>";
+    $(item).hide().appendTo(".chat-history ul").slideDown(200);
+}
