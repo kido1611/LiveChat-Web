@@ -26,6 +26,25 @@ if(nama==undefined){
 }
 $("#nama").val(nama);
 
+var uuid = getCookie("user_uuid");
+if(uuid==undefined){
+    console.log("Getting user UUID");
+    $.ajax({
+        method: "GET",
+        url: "/randomids",
+        success: function(data, textStatus, jqXHR){
+            uuid = data;
+            document.cookie = "user_uuid="+uuid;
+        },
+        done: function(jqXHR){
+            console.log("User UUID: "+uuid);
+        }
+    });
+}
+else
+{
+    console.log("User UUID: "+uuid);
+}
 
 function getCookie(cname){
     var name = cname + "=";
