@@ -69,12 +69,12 @@ db.messages.each(function(message){
     showMessage(message.user_uuid, message.user_name, message.message, message.date, message.f_info);
 });
 
-function showMessage(uuid, user, message, date, f_info){
+function showMessage(user_uuid, user_name, message, date, f_info){
     if(f_info == 0){
-        var item = "<li>"+user+": "+message+"</li>";
+        var item = "<li>"+user_name+": "+message+"</li>";
     }
     else if(f_info == 1){
-        var item = "<li>You're disconnected</li>";
+        var item = "<li>You're "+ message +"</li>";
     }else if(f_info == 2){
         var item = "<li>"+message+"</li>";
     }
