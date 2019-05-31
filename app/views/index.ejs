@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Live chat</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <div>
-            Available people: <span id="livepeople">0</span>
-        </div>
-        <form id="form-setting" action="/" method="POST">
-            <input type="text" name="nama" id="nama" required placeholder="Nama anda" value="">
-            <input type="submit" value="Save">
-        </form>
-        <form id="form-chat" action="/" method="POST">
-            <div class="chat-history">
-                <ul>
-                    
-                </ul>
+        <div class="wrapper">
+            <nav>
+
+            </nav>
+            <div>
+                    Available people: <span id="livepeople">0</span>
             </div>
-            <textarea name="message" id="message" placeholder="Type your message" rows="3" required></textarea> 
-            <input type="submit" value="Send">
-        </form>
+            <form id="form-setting" action="/" method="POST">
+                <input type="text" name="nama" id="nama" required placeholder="Nama anda" value="">
+                <input type="submit" value="Save">
+            </form>
+            <form id="form-chat" action="/" method="POST">
+                <div class="chat-history">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <textarea name="message" id="message" placeholder="Type your message" rows="3" required></textarea> 
+                <input type="submit" value="Send">
+            </form>
+        </div>
         <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/dexie.js"></script>
         <script src="/js/app.js"></script>
