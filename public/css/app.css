@@ -1,3 +1,54 @@
 html, body{
     min-width: 340px;
 }
+
+.chat-history ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 8px 0px;
+}
+
+.message-container{
+    border-radius: 0.25em;
+    padding: 8px;
+    font-size: 14px;
+    background-color: #e0e0e0;
+}
+
+.message-container .message-name{
+    font-weight: bold;
+}
+
+.message-self{
+    background-color: #64dd17;
+}
+
+.message-info{
+    background-color: rgba(255,255,255,0);
+    color: #777;
+    padding: 4px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 12px;
+    position: relative;
+    width: 100%;
+}
+
+.message-info::before{
+    border-top: 2px solid #777;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left:0;
+    right: 0;
+    bottom: 0;
+    width: 95%;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.message-info > .message-content {
+    background-color: #fff;
+    padding-left: 8px;
+    padding-right: 8px;
+}
