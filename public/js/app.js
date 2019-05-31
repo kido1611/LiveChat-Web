@@ -79,13 +79,30 @@ db.messages.each(function(message){
 });
 
 function showMessage(user_uuid, user_name, message, date, f_info, scroll = true){
+    var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    if(typeof date == "string"){
+        
+        date = new Date(date);
+    }
+    else if(typeof date == "object"){
+        
+    }
+    var dates = date.getDay()+" "+bulan[date.getMonth()-1]+" "+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes();
+    
     if(f_info == 0){
-        var item = "<li>"+user_name+": "+message+"</li>";
+        if(user_uuid == uuid){
+            var item = "<li class=\"row m-1\"><div class=\"col-9 col-md-10 offset-3 offset-md-2 message-container message-self\"><span class=\"message-name\">"+user_name+"</span> - <span class=\"message-date\">"+dates+"</span><br/><span class=\"message-content\">"+message+"</span></div></li>";
+        }
+        else
+        {
+            var item = "<li class=\"row m-1\"><div class=\"col-9 col-md-10 message-container\"><span class=\"message-name\">"+user_name+"</span> - <span class=\"message-date\">"+dates+"</span><br/><span class=\"message-content\">"+message+"</span></div></li>";
+        }
     }
     else if(f_info == 1){
-        var item = "<li>You're "+ message +"</li>";
-    }else if(f_info == 2){
-        var item = "<li>"+message+"</li>";
+        var item = "<li class=\"row m-1\"><div class=\"col-12 message-container message-info text-center\"><span class=\"message-content text-center\">"+message+" at "+dates+"</span></div></li>";
+    }
+    else if(f_info == 2){
+        var item = "<li class=\"row m-1\"><div class=\"col-12 message-container message-info text-center\"><span class=\"message-content text-center\">"+message+" at "+dates+"</span></div></li>";
     }
     $(item).hide().appendTo(".chat-history ul").slideDown(200);
     if(scroll){
