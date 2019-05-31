@@ -73,10 +73,12 @@ db.version(1).stores({
 });
 
 db.messages.each(function(message){
-    showMessage(message.user_uuid, message.user_name, message.message, message.date, message.f_info);
+    showMessage(message.user_uuid, message.user_name, message.message, message.date, message.f_info, false);
+}).then(function(){
+    scrollBottom();
 });
 
-function showMessage(user_uuid, user_name, message, date, f_info){
+function showMessage(user_uuid, user_name, message, date, f_info, scroll = true){
     if(f_info == 0){
         var item = "<li>"+user_name+": "+message+"</li>";
     }
@@ -86,4 +88,13 @@ function showMessage(user_uuid, user_name, message, date, f_info){
         var item = "<li>"+message+"</li>";
     }
     $(item).hide().appendTo(".chat-history ul").slideDown(200);
+    if(scroll){
+        scrollBottom();
+    }
+}
+
+function scrollBottom(){
+    $('html, body').animate({
+        scrollTop: document.body.scrollHeight
+    }, "fast");
 }
