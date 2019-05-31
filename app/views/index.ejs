@@ -3,31 +3,39 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Live chat</title>
+        <title>XT Radio Live chat</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
         <div class="wrapper">
-            <nav>
-
+            <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center sticky-top">
+                <a class="navbar-brand m-0" href="#">XT Radio Livechat</a><span class="ml-3 badge badge-secondary" id="livepeople">0 Online</span>
             </nav>
-            <div>
-                    Available people: <span id="livepeople">0</span>
-            </div>
-            <form id="form-setting" action="/" method="POST">
-                <input type="text" name="nama" id="nama" required placeholder="Nama anda" value="">
-                <input type="submit" value="Save">
-            </form>
-            <form id="form-chat" action="/" method="POST">
-                <div class="chat-history">
+            <div class="container-fluid">
+                <div class="row sticky-top bg-light p-2" style="top: 56px;">
+                    <div class="col-12">
+                        <form class="" id="form-setting" action="/" method="POST">
+                            <div class="form-row justify-content-center mx-sm-3">
+                                <div class="col-auto"><input class="form-control" type="text" name="nama" id="nama" required placeholder="Nama anda" value=""></div>
+                                <div class="col-auto"><input class="btn btn-primary" type="submit" value="Save"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="chat-history" style="margin-bottom: 100px;">
                     <ul>
                         
                     </ul>
                 </div>
-                <textarea name="message" id="message" placeholder="Type your message" rows="3" required></textarea> 
-                <input type="submit" value="Send">
-            </form>
+                <div class="row fixed-bottom bg-light">
+                    <div class="col-12">
+                        <form class="m-2" id="form-chat" action="/" method="POST">
+                            <textarea class="form-control" name="message" id="message" placeholder="Type your message" rows="3" required autofocus style="resize: none;"></textarea> 
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
