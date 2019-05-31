@@ -23,7 +23,7 @@ socket.on('updateUser', function(user_uuid, oldUser, newUser, date){
     showMessage(user_uuid, newUser, oldUser+" change name to "+newUser, date, 2);
 });
 socket.on('updateClient', function(count){
-    $("#livepeople").html(count);
+    $("#livepeople").html(count+" Online");
 });
 socket.on('disconnect', function(){
     db.messages.add({
