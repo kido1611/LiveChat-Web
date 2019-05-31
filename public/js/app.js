@@ -16,6 +16,13 @@ $(document).ready(function(){
         document.cookie = "user="+$("#nama").val();
         user = $("#nama").val();
     });
+    $("#message").keyup(function(event){
+        if(event.keyCode === 13 && !event.shiftKey){
+            event.preventDefault();
+            $("#form-chat").submit();
+            $(this).focus();
+        }
+    });
 });
 
 var user = getCookie("user");
