@@ -42,13 +42,13 @@ if(uuid==undefined){
             document.cookie = "user_uuid="+uuid;
         },
         done: function(jqXHR){
-            console.log("User UUID: "+uuid);
+            
         }
     });
 }
 else
 {
-    console.log("User UUID: "+uuid);
+    
 }
 
 var db = new Dexie("livechat_db");
