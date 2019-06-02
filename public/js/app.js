@@ -87,7 +87,7 @@ function showMessage(user_uuid, user_name, message, date, f_info, scroll = true)
     else if(typeof date == "object"){
         
     }
-    var dates = date.getDay()+" "+bulan[date.getMonth()-1]+" "+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes();
+    var dates = date.getDate()+" "+bulan[date.getMonth()-1]+" "+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes();
     
     if(f_info == 0){
         if(user_uuid == uuid){
