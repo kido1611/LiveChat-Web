@@ -13,7 +13,7 @@ $(document).ready(function(){
             return;
         }
         socket.emit('changeName', uuid, user, $("#nama").val());
-        document.cookie = "user="+$("#nama").val();
+        Cookies.set('user', $("#nama").val());
         user = $("#nama").val();
     });
     $("#message").keyup(function(event){
@@ -25,13 +25,13 @@ $(document).ready(function(){
     });
 });
 
-var user = getCookie("user");
+var user = Cookies.get('user');
 if(user==undefined){
     user = "Guest"
 }
 $("#nama").val(user);
 
-var uuid = getCookie("user_uuid");
+var uuid = Cookies.get('user_uuid');
 if(uuid==undefined){
     console.log("Getting user UUID");
     $.ajax({
@@ -49,22 +49,6 @@ if(uuid==undefined){
 else
 {
     console.log("User UUID: "+uuid);
-}
-
-function getCookie(cname){
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(";");
-    for(var i = 0; i < ca.length; i++){
-        var c = ca[i];
-        while(c.charAt(0) == ' '){
-            c = c.substring(1);
-        }
-        if(c.indexOf(name) == 0){
-            return c.substring(name.length, c.length);
-        }
-    }
-    return undefined;
 }
 
 var db = new Dexie("livechat_db");
